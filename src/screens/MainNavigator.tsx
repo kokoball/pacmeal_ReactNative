@@ -4,12 +4,12 @@ import {Colors} from 'react-native-paper'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import Login from './Login'
 import SignUp from './SignUp'
-import HomeNavigator from './HomeNavigator'
+import Home from './Home'
 import type {RouteProp, ParamListBase} from '@react-navigation/native'
 
 type TabBarIconProps = {focused: boolean; color: string; size: number}
 const icons: Record<string, string[]> = {
-  HomeNavigator: ['home-circle', 'home-circle-outline'],
+  Home: ['home-circle', 'home-circle-outline'],
   Login: ['account-search', 'account-search-outline'],
   SignUp: ['account-clock', 'account-clock-outline']
 }
@@ -30,13 +30,9 @@ const Tab = createBottomTabNavigator()
 export default function MainNavigator() {
   return (
     <Tab.Navigator screenOptions={screenOptions}>
+      <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Login" component={Login} />
-      <Tab.Screen name="SignUp" component={SignUp} />
-      <Tab.Screen
-        name="HomeNavigator"
-        component={HomeNavigator}
-        options={{tabBarLabel: 'Home', tabBarBadge: 3}} // 배지 옵션
-      />
+      <Tab.Screen name="SignUp" component={SignUp} />      
     </Tab.Navigator>
   )
 }

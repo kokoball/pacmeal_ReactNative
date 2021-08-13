@@ -13,11 +13,6 @@ import type {LeftRightNavigationMethods} from '../components'
 export default function Home() {
   // navigation
   const navigation = useNavigation()
-  const goLeft = useCallback(() => navigation.navigate('HomeLeft'), [])
-  const goRight = useCallback(
-    () => navigation.navigate('HomeRight', {name: 'Jack', age: 32}),
-    []
-  )
   const logout = useCallback(() => {
     navigation.navigate('Login')
   }, [])
@@ -62,9 +57,7 @@ export default function Home() {
           <LeftRightNavigation
             ref={leftRef}
             distance={40}
-            flatListRef={flatListRef}
-            onLeftToRight={goLeft}
-            onRightToLeft={goRight}>
+            flatListRef={flatListRef}>
             <FlatList
               ref={flatListRef}
               scrollEnabled={scrollEnabled}
