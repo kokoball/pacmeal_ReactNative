@@ -2,16 +2,18 @@ import React from 'react'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import {Colors} from 'react-native-paper'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
-import Login from './Login'
-import SignUp from './SignUp'
 import Home from './Home'
+import AroundMe from './AroundMe'
+import OrderList from './OrderList'
+import MyPacmeal from './MyPacmeal'
 import type {RouteProp, ParamListBase} from '@react-navigation/native'
 
 type TabBarIconProps = {focused: boolean; color: string; size: number}
 const icons: Record<string, string[]> = {
   Home: ['home-circle', 'home-circle-outline'],
-  Login: ['account-search', 'account-search-outline'],
-  SignUp: ['account-clock', 'account-clock-outline']
+  AroundMe: ['home-circle', 'home-circle-outline'],
+  OrderList: ['account-search', 'account-search-outline'],
+  MyPacmeal: ['account-clock', 'account-clock-outline']
 }
 const screenOptions = ({route}: {route: RouteProp<ParamListBase, string>}) => {
   return {
@@ -31,8 +33,9 @@ export default function MainNavigator() {
   return (
     <Tab.Navigator screenOptions={screenOptions}>
       <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Login" component={Login} />
-      <Tab.Screen name="SignUp" component={SignUp} />      
+      <Tab.Screen name="AroundMe" component={AroundMe} />
+      <Tab.Screen name="OrderList" component={OrderList} />
+      <Tab.Screen name="MyPacmeal" component={MyPacmeal} />   
     </Tab.Navigator>
   )
 }

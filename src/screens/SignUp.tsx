@@ -72,6 +72,7 @@ export default function SignUp() {
               />
             </View>
           </View>
+          dfd
           <TouchableView
             notification
             style={[styles.touchableView]}
